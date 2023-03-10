@@ -67,7 +67,7 @@ public class IdeeService {
      * Supprime une idee par son id
      * @param id l'id de l'idee à supprimer
      */
-    public Idee deleteById(String id){
+    public void deleteById(String id){
         repository.deleteById(id);
     }
 }

@@ -27,42 +27,42 @@ public class IdeeController {
      */
     @GetMapping
     @ResponseStatus(code = HttpStatus.OK)
-    public List<Event> findAll() {
+    public List<Idee> findAll() {
         return service.findAll();
     }
 
     /**
-     * Crée un nouvel event
+     * Crée une nouvelle idee
      *
-     * @param entity les infos de l'event à créer
-     * @return l'event sauvegardé
+     * @param entity les infos de l'idee à créer
+     * @return l'idee sauvegardée
      */
     @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
-    public Event save(Event entity) {
+    public Idee save(Idee entity) {
         return service.save(entity);
     }
 
     /**
-     * Met à jour les informations d'un event
+     * Met à jour les informations d'une idee
      *
-     * @param event les informations de l'event à modifier
-     * @return l'event modifié
+     * @param idee les informations de l'idee à modifier
+     * @return l'idee modifiée
      */
     @PutMapping("{id}")
     @ResponseStatus(code = HttpStatus.ACCEPTED)
-    public Event update(@RequestBody Event event, @PathVariable String id) {
-        if (!id.equals(event.getId())){
+    public Idee update(@RequestBody Idee idee, @PathVariable String id) {
+        if (!id.equals(idee.getId())){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Id non trouvé.");
         }
-        return this.service.update(event);
+        return this.service.update(idee);
     }
 
     /**
-     * Recherche un event par son id.
-     * Si aucun event n'est trouvé, retourne un 404
-     * @param id l'id de l'event à trouver
-     * @return l'event trouvé
+     * Recherche une idee par son id.
+     * Si aucune idee n'est trouvée, retourne un 404
+     * @param id l'id de l'idee à trouver
+     * @return l'idee trouvé
      */
     @GetMapping("{id}")
     @ResponseStatus(code = HttpStatus.FOUND)
