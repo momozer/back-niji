@@ -63,4 +63,11 @@ public class IdeeService {
             return new ResponseStatusException(HttpStatus.NOT_FOUND);
         });
     }
+    /**
+     * Supprime une idee par son id
+     * @param id l'id de l'idee à supprimer
+     */
+    public Idee deleteById(String id){
+        repository.deleteById(id);
+    }
 }
