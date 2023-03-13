@@ -26,28 +26,4 @@ public class Place extends AbstractEntity{
 
     @Column(name = "occupe")
     private boolean occupe;
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getNom() {
-        return nom;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-
-    public boolean isOccupe() {
-        return occupe;
-    }
-
-    public void setOccupe(boolean occupe) {
-        this.occupe = occupe;
-    }
 }

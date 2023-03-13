@@ -27,35 +27,5 @@ public class Parking extends AbstractEntity{
     @Column(name = "placeMax")
     private Integer placeMax = 6;
 
-    public String getId() {
-        return id;
-    }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getNom() {
-        return nom;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-
-    public Integer getPlaceLibre() {
-        return placeLibre;
-    }
-
-    public void setPlaceLibre(Integer placeLibre) {
-        this.placeLibre = placeLibre;
-    }
-
-    public Integer getPlaceMax() {
-        return placeMax;
-    }
-
-    public void setPlaceMax(Integer placeMax) {
-        this.placeMax = placeMax;
-    }
 }
