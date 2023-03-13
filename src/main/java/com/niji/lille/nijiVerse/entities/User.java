@@ -1,9 +1,6 @@
 package com.niji.lille.nijiVerse.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -41,6 +38,11 @@ public class User extends AbstractEntity{
 
     @Column(name = "motPasse")
     private String motPasse;
+
+    @ManyToOne
+    @JoinColumn(name = "id_role")
+    private Roles role;
+    
 
 
 }

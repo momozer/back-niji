@@ -1,25 +1,25 @@
-services:
-
-  localhost:
-    image: mysql:5.7
-    restart: unless-stopped
-    environment:
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_ROOT_USERNAME=hiram
-      - MYSQL_DATABASE=nijiverse
-    networks:
-      - application
-    ports:
-      - 3306:3306
-
-  api_spring:
-    build: .
-    ports:
-      - 8081:8080
-    depends_on:
-      - localhost
-    environment:
-      DATABASE_USERNAME: root
-      DATABASE_PASSWORD: root
-      DATABASE_URL: jdbc:mysql://localhost:3306/nijiverse?useSSL=false&serverTimezone=UTC
-      PLATFORM: mysql
+#services:
+#
+#  localhost:
+#    image: mysql:5.7
+#    restart: unless-stopped
+#    environment:
+#      - MYSQL_ROOT_PASSWORD=root
+#      - MYSQL_ROOT_USERNAME=hiram
+#      - MYSQL_DATABASE=nijiverse
+#    networks:
+#      - application
+#    ports:
+#      - 3306:3306
+#
+#  api_spring:
+#    build: .
+#    ports:
+#      - 8081:8080
+#    depends_on:
+#      - localhost
+#    environment:
+#      DATABASE_USERNAME: root
+#      DATABASE_PASSWORD: root
+#      DATABASE_URL: jdbc:mysql://localhost:3306/nijiverse?useSSL=false&serverTimezone=UTC
+#      PLATFORM: mysql
