@@ -5,12 +5,12 @@ services:
     restart: unless-stopped
     environment:
       - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_ROOT_USERNAME=root
+      - MYSQL_ROOT_USERNAME=hiram
       - MYSQL_DATABASE=nijiverse
     networks:
       - application
     ports:
-      - 3307:3306
+      - 3306:3306
 
   api_spring:
     build: .

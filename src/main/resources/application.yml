@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:mysql://nijiverse:3306/nijiverse?useSSL=false&serverTimezone=UTC
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
