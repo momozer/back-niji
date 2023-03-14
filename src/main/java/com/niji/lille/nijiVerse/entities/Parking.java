@@ -21,9 +21,6 @@ public class Parking extends AbstractEntity{
     @Column(name = "nom")
     private String nom;
 
-    @Column(name = "placeLibre")
-    private Integer placeLibre;
-
     @Column(name = "placeMax")
     private Integer placeMax = 6;
 
