@@ -8,8 +8,6 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
 @Table(name = "parking")
 public class Parking extends AbstractEntity{
@@ -18,8 +16,6 @@ public class Parking extends AbstractEntity{
     @Column(name = "id")
     private String id;
 
-    @Column(name = "nom")
-    private String nom;
 
     @Column(name = "placeMax")
     private Integer placeMax = 6;

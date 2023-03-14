@@ -5,8 +5,6 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
 @Table(name = "idee")
 public class Idee extends AbstractEntity{

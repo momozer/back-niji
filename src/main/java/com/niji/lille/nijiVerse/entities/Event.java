@@ -14,8 +14,6 @@ import java.time.LocalDate;
 @Data
 @Entity
 @Table(name = "event")
-@AllArgsConstructor
-@NoArgsConstructor
 public class Event extends AbstractEntity{
 
     @Id
