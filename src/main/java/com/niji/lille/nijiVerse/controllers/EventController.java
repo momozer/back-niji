@@ -24,7 +24,7 @@ public class EventController {
      *
      * @return la liste de tous les events
      */
-    @GetMapping
+    @GetMapping("")
     @ResponseStatus(code = HttpStatus.OK)
     public List<Event> findAll() {
         return service.findAll();
@@ -36,7 +36,7 @@ public class EventController {
      * @param entity les infos de l'event à créer
      * @return l'event sauvegardé
      */
-    @PostMapping
+    @PostMapping("/create")
     @ResponseStatus(code = HttpStatus.CREATED)
     public Event save(Event entity) {
         return service.save(entity);
