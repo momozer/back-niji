@@ -63,7 +63,7 @@ public class IdeeController {
      * @param id l'id de l'idee à trouver
      * @return l'idee trouvé
      */
-    @GetMapping("/delete/{id}")
+    @GetMapping("/{id}")
     @ResponseStatus(code = HttpStatus.FOUND)
     public Idee findById(@PathVariable String id) {
         return service.findById(id);
