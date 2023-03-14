@@ -37,7 +37,7 @@ public class IdeeController {
      * @param entity les infos de l'idee à créer
      * @return l'idee sauvegardée
      */
-    @PostMapping
+    @PostMapping("/create")
     @ResponseStatus(code = HttpStatus.CREATED)
     public Idee save(Idee entity) {
         return service.save(entity);
@@ -64,7 +64,7 @@ public class IdeeController {
      * @param id l'id de l'idee à trouver
      * @return l'idee trouvé
      */
-    @GetMapping("{id}")
+    @GetMapping("/delete/{id}")
     @ResponseStatus(code = HttpStatus.FOUND)
     public Idee findById(@PathVariable String id) {
         return service.findById(id);
