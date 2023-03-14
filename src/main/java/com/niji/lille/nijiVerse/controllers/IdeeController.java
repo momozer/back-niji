@@ -74,7 +74,7 @@ public class IdeeController {
      *
      * @param id l'id de l'idee à supprimer
      */
-    @DeleteMapping("{id}")
+    @DeleteMapping("/delete/{id}")
     @ResponseStatus(code = HttpStatus.OK)
     public void deleteById(@PathVariable String id) {
         service.deleteById(id);
