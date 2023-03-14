@@ -7,9 +7,10 @@ import lombok.*;
 @Data
 @Entity
 @Table(name = "idee")
-public class Idee extends AbstractEntity{
+public class Idee {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private String id;
 

@@ -1,18 +1,17 @@
 package com.niji.lille.nijiVerse.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Data
 @Entity
 @Table(name = "roles")
-public class Roles extends AbstractEntity{
+public class Roles {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private String id;
 

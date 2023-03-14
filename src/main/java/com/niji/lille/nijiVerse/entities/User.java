@@ -10,9 +10,10 @@ import java.time.LocalDate;
 @Data
 @Entity
 @Table(name = "user")
-public class User extends AbstractEntity{
+public class User{
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id" )
     private String id;
 
