@@ -25,7 +25,7 @@ public class IdeeController {
      *
      * @return la liste de tous les events
      */
-    @GetMapping
+    @GetMapping("/all")
     @ResponseStatus(code = HttpStatus.OK)
     public List<Idee> findAll() {
         return service.findAll();
