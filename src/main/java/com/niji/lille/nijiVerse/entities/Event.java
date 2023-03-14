@@ -12,7 +12,7 @@ import java.time.LocalDate;
 public class Event {
 
     @Id
-    @Column(name = "id")
+    @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
 

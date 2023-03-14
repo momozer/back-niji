@@ -10,7 +10,7 @@ public class Parking {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
+    @Column(name = "id", nullable = false)
     private String id;
 
 
