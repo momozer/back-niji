@@ -3,9 +3,7 @@ package com.niji.lille.nijiVerse.controllers;
 import com.niji.lille.nijiVerse.entities.Parking;
 import com.niji.lille.nijiVerse.services.ParkingService;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
@@ -25,6 +23,8 @@ public class ParkingController {
      * Récupère tous les parking
      * @return la liste de tous les parkings
      */
+    @GetMapping("/all")
+    @ResponseStatus(code = HttpStatus.OK)
     public List<Parking> findAll() {
         return service.findAll();
     }
@@ -34,6 +34,8 @@ public class ParkingController {
      * @param entity les infos du parking à créer
      * @return le parking sauvegardé
      */
+    @PostMapping("/create")
+    @ResponseStatus(code = HttpStatus.CREATED)
     public Parking save(Parking entity) {
         return service.save(entity);
     }
@@ -43,6 +45,8 @@ public class ParkingController {
      * @param parking les informations du parking à modifier
      * @return le parking modifié
      */
+    @PutMapping("/edit/{id}")
+    @ResponseStatus(code = HttpStatus.ACCEPTED)
     public Parking update(Parking parking, String id) {
         if (!id.equals(parking.getId())){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Id non trouvé.");
@@ -56,6 +60,8 @@ public class ParkingController {
      * @param id l'id du parking à trouver
      * @return le parking trouvé
      */
+    @GetMapping("/{id}")
+    @ResponseStatus(code = HttpStatus.FOUND)
     public Parking findById(String id) {
             return service.findById(id);
     }
@@ -64,6 +70,8 @@ public class ParkingController {
      * Supprime un event par son id
      * @param id l'id de l'event à supprimer
      */
+    @DeleteMapping("/delete/{id}")
+    @ResponseStatus(code = HttpStatus.OK)
     public void deleteById(String id) {
         service.deleteById(id);
     }
