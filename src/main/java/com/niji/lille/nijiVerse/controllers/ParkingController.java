@@ -2,6 +2,7 @@ package com.niji.lille.nijiVerse.controllers;
 
 import com.niji.lille.nijiVerse.entities.Parking;
 import com.niji.lille.nijiVerse.services.ParkingService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
@@ -13,6 +14,7 @@ import java.util.List;
 @CrossOrigin
 public class ParkingController {
 
+    @Autowired
     private final ParkingService service;
 
     public ParkingController(ParkingService service) {

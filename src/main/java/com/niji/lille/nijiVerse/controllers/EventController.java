@@ -2,6 +2,7 @@ package com.niji.lille.nijiVerse.controllers;
 
 import com.niji.lille.nijiVerse.entities.Event;
 import com.niji.lille.nijiVerse.services.EventService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
@@ -13,6 +14,7 @@ import java.util.List;
 @CrossOrigin
 public class EventController {
 
+    @Autowired
     private final EventService service;
 
     public EventController(EventService service) {

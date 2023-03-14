@@ -17,6 +17,7 @@ public class Parking {
     @Column(name = "placeMax")
     private Integer placeMax = 6;
 
+
     @Column(name = "occupant")
     private String occupant;
 
