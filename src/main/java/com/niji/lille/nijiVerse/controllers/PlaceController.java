@@ -24,7 +24,7 @@ public class PlaceController {
      * Récupère toutes les places
      * @return la liste de toutes les places
      */
-    @GetMapping
+    @GetMapping("/all")
     @ResponseStatus(code = HttpStatus.OK)
     public List<Place> findAll() {
         return service.findAll();
@@ -35,7 +35,7 @@ public class PlaceController {
      * @param entity les infos de la place à créer
      * @return la place sauvegardé
      */
-    @PostMapping
+    @PostMapping("/create")
     @ResponseStatus(code = HttpStatus.CREATED)
     public Place save(Place entity) {
         return service.save(entity);
@@ -46,7 +46,7 @@ public class PlaceController {
      * @param place les informations de la place à modifier
      * @return la place modifiée
      */
-    @PutMapping("{id}")
+    @PutMapping("/edit/{id}")
     @ResponseStatus(code = HttpStatus.ACCEPTED)
     public Place update(@RequestBody Place place, @PathVariable String id) {
         if (!id.equals(place.getId())){
@@ -61,7 +61,7 @@ public class PlaceController {
      * @param id l'id de la place à trouver
      * @return la place trouvée
      */
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     @ResponseStatus(code = HttpStatus.FOUND)
     public Place findById(@PathVariable String id) {
         return service.findById(id);
@@ -71,7 +71,7 @@ public class PlaceController {
      * Supprime un event par son id
      * @param id l'id de l'event à supprimer
      */
-    @DeleteMapping("{id}")
+    @DeleteMapping("/delete/{id}")
     @ResponseStatus(code = HttpStatus.OK)
     public void deleteById(@PathVariable String id) {
         service.deleteById(id);
