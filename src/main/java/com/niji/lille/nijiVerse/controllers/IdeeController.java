@@ -1,6 +1,5 @@
 package com.niji.lille.nijiVerse.controllers;
 
-import com.niji.lille.nijiVerse.entities.Event;
 import com.niji.lille.nijiVerse.entities.Idee;
 import com.niji.lille.nijiVerse.services.IdeeService;
 import org.springframework.http.HttpStatus;
@@ -49,7 +48,7 @@ public class IdeeController {
      * @param idee les informations de l'idee à modifier
      * @return l'idee modifiée
      */
-    @PutMapping("{id}")
+    @PutMapping("/edit/{id}")
     @ResponseStatus(code = HttpStatus.ACCEPTED)
     public Idee update(@RequestBody Idee idee, @PathVariable String id) {
         if (!id.equals(idee.getId())){
