@@ -48,7 +48,7 @@ public class EventController {
      * @param event les informations de l'event à modifier
      * @return l'event modifié
      */
-    @PutMapping("{id}")
+    @PutMapping("/edit/{id}")
     @ResponseStatus(code = HttpStatus.ACCEPTED)
     public Event update(@RequestBody Event event, @PathVariable String id) {
         if (!id.equals(event.getId())){
@@ -63,7 +63,7 @@ public class EventController {
      * @param id l'id de l'event à trouver
      * @return l'event trouvé
      */
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     @ResponseStatus(code = HttpStatus.FOUND)
     public Event findById(@PathVariable String id) {
         return service.findById(id);
@@ -74,7 +74,7 @@ public class EventController {
      *
      * @param id l'id de l'event à supprimer
      */
-    @DeleteMapping("{id}")
+    @DeleteMapping("/delete/{id}")
     @ResponseStatus(code = HttpStatus.OK)
     public void deleteById(@PathVariable String id) {
         service.deleteById(id);
