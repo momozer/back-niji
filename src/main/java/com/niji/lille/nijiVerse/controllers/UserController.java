@@ -23,7 +23,7 @@ public class UserController {
      *
      * @return la liste de tous les users
      */
-    @GetMapping
+    @GetMapping("/all")
     @ResponseStatus(code = HttpStatus.OK)
     public List<User> findAll() {
         return service.findAll();
@@ -35,7 +35,7 @@ public class UserController {
      * @param entity les infos du user à créer
      * @return l'user sauvegardé
      */
-    @PostMapping
+    @PostMapping("/create")
     @ResponseStatus(code = HttpStatus.CREATED)
     public User save(User entity) {
         return service.save(entity);
@@ -47,7 +47,7 @@ public class UserController {
      * @param user les informations du user à modifier
      * @return l'user modifié
      */
-    @PutMapping("{id}")
+    @PutMapping("/edit/{id}")
     @ResponseStatus(code = HttpStatus.ACCEPTED)
     public User update(@RequestBody User user, @PathVariable String id) {
         if ( !id.equals(user.getId())){
@@ -62,7 +62,7 @@ public class UserController {
      * @param id l'id du user à trouver
      * @return l'user trouvé
      */
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     @ResponseStatus(code = HttpStatus.FOUND)
     public User findById(@PathVariable String id) {
         return service.findById(id);
@@ -73,7 +73,7 @@ public class UserController {
      *
      * @param id l'id du user à supprimer
      */
-    @DeleteMapping("{id}")
+    @DeleteMapping("/delete/{id}")
     @ResponseStatus(code = HttpStatus.OK)
     public void deleteById(@PathVariable String id) {
         service.deleteById(id);

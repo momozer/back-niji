@@ -24,7 +24,7 @@ public class EventController {
      *
      * @return la liste de tous les events
      */
-    @GetMapping("")
+    @GetMapping("/all")
     @ResponseStatus(code = HttpStatus.OK)
     public List<Event> findAll() {
         return service.findAll();
