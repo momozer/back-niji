@@ -16,14 +16,14 @@ public class Event {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "date")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy HH:mm:ss")
+    @Column(name = "date", nullable = false)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy HH:mm")
     private LocalDate date;
 
-    @Column(name = "category")
+    @Column(name = "category", nullable = false)
     private Category category;
 
-    @Column(name = "lieu")
+    @Column(name = "lieu", nullable = false)
     private String lieu;
 
     @Column(name = "commentaire")
