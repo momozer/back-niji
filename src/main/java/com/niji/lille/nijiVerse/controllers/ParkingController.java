@@ -38,7 +38,7 @@ public class ParkingController {
      */
     @PostMapping("/create")
     @ResponseStatus(code = HttpStatus.CREATED)
-    public Parking save(Parking entity) {
+    public Parking save(@RequestBody Parking entity) {
         return service.save(entity);
     }
 
@@ -49,7 +49,7 @@ public class ParkingController {
      */
     @PutMapping("/edit/{id}")
     @ResponseStatus(code = HttpStatus.ACCEPTED)
-    public Parking update(Parking parking, Long id) {
+    public Parking update(@RequestBody Parking parking, @PathVariable Long id) {
         if (!id.equals(parking.getId())){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Id non trouvé.");
         }

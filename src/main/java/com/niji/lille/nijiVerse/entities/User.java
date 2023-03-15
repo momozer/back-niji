@@ -18,10 +18,10 @@ public class User{
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "nom")
+    @Column(name = "nom", nullable = false)
     private String nom;
 
-    @Column(name = "prenom")
+    @Column(name = "prenom", nullable = false)
     private String prenom;
 
     @Column(name = "username")

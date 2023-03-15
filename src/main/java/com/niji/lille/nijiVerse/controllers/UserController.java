@@ -39,7 +39,7 @@ public class UserController {
      */
     @PostMapping("/create")
     @ResponseStatus(code = HttpStatus.CREATED)
-    public User save(User entity) {
+    public User save(@RequestBody User entity) {
         return service.save(entity);
     }
 

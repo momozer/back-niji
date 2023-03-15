@@ -40,7 +40,7 @@ public class EventController {
      */
     @PostMapping("/create")
     @ResponseStatus(code = HttpStatus.CREATED)
-    public Event save(Event entity) {
+    public Event save(@RequestBody Event entity) {
         return service.save(entity);
     }
 
