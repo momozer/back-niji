@@ -52,7 +52,7 @@ public class EventController {
      */
     @PutMapping("/edit/{id}")
     @ResponseStatus(code = HttpStatus.ACCEPTED)
-    public Event update(@RequestBody Event event, @PathVariable String id) {
+    public Event update(@RequestBody Event event, @PathVariable Long id) {
         if (!id.equals(event.getId())){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Id non trouvé.");
         }
@@ -67,7 +67,7 @@ public class EventController {
      */
     @GetMapping("/{id}")
     @ResponseStatus(code = HttpStatus.FOUND)
-    public Event findById(@PathVariable String id) {
+    public Event findById(@PathVariable Long id) {
         return service.findById(id);
     }
 
@@ -78,7 +78,7 @@ public class EventController {
      */
     @DeleteMapping("/delete/{id}")
     @ResponseStatus(code = HttpStatus.OK)
-    public void deleteById(@PathVariable String id) {
+    public void deleteById(@PathVariable Long id) {
         service.deleteById(id);
     }
 }

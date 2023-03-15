@@ -49,7 +49,7 @@ public class ParkingController {
      */
     @PutMapping("/edit/{id}")
     @ResponseStatus(code = HttpStatus.ACCEPTED)
-    public Parking update(Parking parking, String id) {
+    public Parking update(Parking parking, Long id) {
         if (!id.equals(parking.getId())){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Id non trouvé.");
         }
@@ -64,7 +64,7 @@ public class ParkingController {
      */
     @GetMapping("/{id}")
     @ResponseStatus(code = HttpStatus.FOUND)
-    public Parking findById(String id) {
+    public Parking findById(Long id) {
             return service.findById(id);
     }
 
@@ -74,7 +74,7 @@ public class ParkingController {
      */
     @DeleteMapping("/delete/{id}")
     @ResponseStatus(code = HttpStatus.OK)
-    public void deleteById(String id) {
+    public void deleteById(Long id) {
         service.deleteById(id);
     }
 

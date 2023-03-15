@@ -57,7 +57,7 @@ public class IdeeService {
      * @param id l'id de l'idee à trouver
      * @return l'idee trouvée
      */
-    public Idee findById(String id) {
+    public Idee findById(Long id) {
         return repository.findById(id).orElseThrow(() -> {
             logger.warn("findByIdInvalid: " + id);
             return new ResponseStatusException(HttpStatus.NOT_FOUND);
@@ -67,7 +67,7 @@ public class IdeeService {
      * Supprime une idee par son id
      * @param id l'id de l'idee à supprimer
      */
-    public void deleteById(String id){
+    public void deleteById(Long id){
         repository.deleteById(id);
     }
 }

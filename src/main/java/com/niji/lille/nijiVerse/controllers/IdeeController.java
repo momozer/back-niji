@@ -51,7 +51,7 @@ public class IdeeController {
      */
     @PutMapping("/edit/{id}")
     @ResponseStatus(code = HttpStatus.ACCEPTED)
-    Idee update(@RequestBody Idee idee, @PathVariable String id) {
+    Idee update(@RequestBody Idee idee, @PathVariable Long id) {
         if (!id.equals(idee.getId())){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Id non trouvé.");
         }
@@ -66,7 +66,7 @@ public class IdeeController {
      */
     @GetMapping("/{id}")
     @ResponseStatus(code = HttpStatus.FOUND)
-    Idee findById(@PathVariable String id) {
+    Idee findById(@PathVariable Long id) {
         return service.findById(id);
     }
 
@@ -77,7 +77,7 @@ public class IdeeController {
      */
     @DeleteMapping("/delete/{id}")
     @ResponseStatus(code = HttpStatus.OK)
-    void deleteById(@PathVariable String id) {
+    void deleteById(@PathVariable Long id) {
         service.deleteById(id);
     }
 }

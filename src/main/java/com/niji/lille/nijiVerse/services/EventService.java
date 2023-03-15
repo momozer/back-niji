@@ -56,7 +56,7 @@ public class EventService {
      * @param id l'id de l'event à trouver
      * @return l'event trouvé
      */
-    public Event findById(String id) {
+    public Event findById(Long id) {
         return repository.findById(id).orElseThrow(() -> {
             logger.warn("findByIdInvalid: " +id);
             return new ResponseStatusException(HttpStatus.NOT_FOUND);
@@ -67,7 +67,7 @@ public class EventService {
      * Supprime un event par son id
      * @param id l'id de l'event à supprimer
      */
-    public void deleteById(String id) {
+    public void deleteById(Long id) {
         repository.deleteById(id);
     }
 }

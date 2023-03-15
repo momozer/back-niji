@@ -58,7 +58,7 @@ public class ParkingService {
      * @param id l'id du parking à trouver
      * @return le parking trouvé
      */
-    public Parking findById(String id) {
+    public Parking findById(Long id) {
         return repository.findById(id).orElseThrow(() -> {
             logger.warn("findByIdInvalid: " +id);
             return new ResponseStatusException(HttpStatus.NOT_FOUND);
@@ -69,7 +69,7 @@ public class ParkingService {
      * Supprime un event par son id
      * @param id l'id de l'event à supprimer
      */
-    public void deleteById(String id) {
+    public void deleteById(Long id) {
         repository.deleteById(id);
     }
 }

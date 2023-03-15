@@ -12,7 +12,7 @@ public class Idee {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
-    private String id;
+    private Long id;
 
     @Column(name = "vote")
     private Integer vote;

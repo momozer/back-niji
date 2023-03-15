@@ -51,7 +51,7 @@ public class UserController {
      */
     @PutMapping("/edit/{id}")
     @ResponseStatus(code = HttpStatus.ACCEPTED)
-    public User update(@RequestBody User user, @PathVariable String id) {
+    public User update(@RequestBody User user, @PathVariable Long id) {
         if ( !id.equals(user.getId())){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Id non trouvé.");
         }
@@ -66,7 +66,7 @@ public class UserController {
      */
     @GetMapping("/{id}")
     @ResponseStatus(code = HttpStatus.FOUND)
-    public User findById(@PathVariable String id) {
+    public User findById(@PathVariable Long id) {
         return service.findById(id);
     }
 
@@ -77,7 +77,7 @@ public class UserController {
      */
     @DeleteMapping("/delete/{id}")
     @ResponseStatus(code = HttpStatus.OK)
-    public void deleteById(@PathVariable String id) {
+    public void deleteById(@PathVariable Long id) {
         service.deleteById(id);
     }
 }

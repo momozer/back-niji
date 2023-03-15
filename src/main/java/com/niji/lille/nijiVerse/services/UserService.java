@@ -55,7 +55,7 @@ public class UserService {
      * @param id l'id du user à trouver
      * @return l'user trouvé
      */
-    public User findById(String id) {
+    public User findById(Long id) {
         return repository.findById(id).orElseThrow(() -> {
             logger.warn("findByIdInvalid: " +id);
             return new ResponseStatusException(HttpStatus.NOT_FOUND);
@@ -66,7 +66,7 @@ public class UserService {
      * Supprime un user par son id
      * @param id l'id du user à supprimer
      */
-    public void deleteById(String id) {
+    public void deleteById(Long id) {
         repository.deleteById(id);
     }
 
