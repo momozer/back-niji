@@ -1,5 +1,6 @@
 package com.niji.lille.nijiVerse.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,6 +28,7 @@ public class User{
     private String username;
 
     @Column(name = "dateNaissance")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     private LocalDate dateNaissance;
 
     @Column(name = "email" )
