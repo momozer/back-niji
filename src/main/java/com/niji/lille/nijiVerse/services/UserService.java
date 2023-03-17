@@ -5,6 +5,7 @@ import com.niji.lille.nijiVerse.repositories.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -62,6 +63,10 @@ public class UserService {
         });
     }
 
+    public User findByUsername(String username){
+        return repository.findByUsername(username);
+    }
+
     /**
      * Supprime un user par son id
      * @param id l'id du user à supprimer
@@ -70,5 +75,13 @@ public class UserService {
         repository.deleteById(id);
     }
 
+    @Override
+    public User loadUserByUsername(String username) throws UsernameNotFoundException {
+        User user = repository.findByUsername(username);
+        if (user == null) {
+            throw new UsernameNotFoundException("Nom d'utilisateur (username) introuvable");
+        }
+        return user;
+    }
 
 }

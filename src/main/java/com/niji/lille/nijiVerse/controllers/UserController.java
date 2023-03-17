@@ -71,6 +71,17 @@ public class UserController {
     }
 
     /**
+     * Recherche un user par son username
+     * @param username de l'user à trouver
+     * @return l'user trouvé
+     */
+    @GetMapping("/username")
+    @ResponseStatus(code = HttpStatus.FOUND)
+    public User findByUsername(@PathVariable String username){
+        return service.findByUsername(username);
+    }
+
+    /**
      * Supprime un user par son id
      *
      * @param id l'id du user à supprimer
