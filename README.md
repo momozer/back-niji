@@ -97,3 +97,56 @@ to find a user by id
   "role": null
 }
 ```
+#### Events :
+
+
+POST : http://localhost:8080/events/create
+to create an event. For example :
+```json
+{
+  "lieu" : "Lille",
+  "category" : SPORT,
+  "date" : 15/12/2023 10:50
+
+}
+```
+
+GET All : http://localhost:8080/events/all
+to find all events
+````json
+[
+  {
+    "id": 302,
+    "nom": "John",
+    "prenom": "Doe",
+    "username": "jpal",
+    "dateNaissance": null,
+    "email": null,
+    "phone": null,
+    "motPasse": null,
+    "role": null
+  }
+]
+````
+DELETE By Id : http://localhost:8080/events/delete/302
+to delete an event by id
+```json
+[]
+```
+
+GET By Id : http://localhost:8080/events/302
+to find an event by id
+
+```json
+ {
+  "id": 302,
+  "nom": "John",
+  "prenom": "Doe",
+  "username": "jpal",
+  "dateNaissance": null,
+  "email": null,
+  "phone": null,
+  "motPasse": null,
+  "role": null
+}
+```
