@@ -32,7 +32,7 @@
 //    }
 //
 //    @Override
-//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//    ** à changer : private ou public ** protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 //        auth.jdbcAuthentication()
 //                .dataSource(dataSource)
 //                .usersByUsernameQuery("SELECT username, mot_passe, actif FROM user WHERE username=?")
