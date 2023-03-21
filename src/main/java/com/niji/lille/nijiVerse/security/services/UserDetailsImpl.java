@@ -1,13 +1,13 @@
-
+package com.niji.lille.nijiVerse.security.services;
 
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+import com.niji.lille.nijiVerse.entities.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -34,8 +34,8 @@ public class UserDetailsImpl implements UserDetails {
         this.authorities = authorities;
     }
 
-    public static UserDetailsImpl build(User user) {
-        List<GrantedAuthority> authorities = user.getRole().stream()
+   public static UserDetailsImpl build (User user){
+        List<GrantedAuthority> authorities = user.getRoles().stream()
                 .map(role -> new SimpleGrantedAuthority(role.getName().name()))
                 .collect(Collectors.toList());
 
@@ -45,26 +45,17 @@ public class UserDetailsImpl implements UserDetails {
                 user.getEmail(),
                 user.getMotPasse(),
                 authorities);
-    }
+   }
 
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
+   @Override
+    public Collection<? extends GrantedAuthority> getAuthorities(){
         return authorities;
-    }
+   }
 
     @Override
     public String getPassword() {
-        return null;
+        return motPasse;
     }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
 
     @Override
     public String getUsername() {
@@ -91,13 +82,5 @@ public class UserDetailsImpl implements UserDetails {
         return true;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o)
-            return true;
-        if (o == null || getClass() != o.getClass())
-            return false;
-        UserDetailsImpl user = (UserDetailsImpl) o;
-        return Objects.equals(id, user.id);
-    }
+
 }
