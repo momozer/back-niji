@@ -1,4 +1,4 @@
-package com.niji.lille.nijiVerse.token;
+package com.niji.lille.nijiVerse.security.token;
 
 import com.niji.lille.nijiVerse.entities.User;
 import jakarta.persistence.*;

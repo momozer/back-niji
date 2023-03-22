@@ -1,4 +1,4 @@
-package com.niji.lille.nijiVerse.token;
+package com.niji.lille.nijiVerse.security.token;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
