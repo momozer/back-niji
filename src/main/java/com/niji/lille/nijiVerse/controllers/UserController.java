@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/users")
@@ -69,6 +70,18 @@ public class UserController {
     public User findById(@PathVariable Long id) {
         return service.findById(id);
     }
+    
+    /**
+     * Recherche un user par son email.
+     * Si aucun user n'est trouvé, retourne un 404
+     * @param email l'email du user à trouver
+     * @return l'user trouvé
+     */
+    @GetMapping("/{email}")
+    @ResponseStatus(code = HttpStatus.FOUND)
+    public Optional<User> findByEmail(@PathVariable String email){
+        return  service.findByEmail(email);
+    }
 
     /**
      * Recherche un user par son username
@@ -77,7 +90,7 @@ public class UserController {
      */
     @GetMapping("/username")
     @ResponseStatus(code = HttpStatus.FOUND)
-    public User findByUsername(@PathVariable String username){
+    public Optional<User> findByUsername(@PathVariable String username){
         return service.findByUsername(username);
     }
 

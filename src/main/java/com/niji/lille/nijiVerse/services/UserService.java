@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -62,7 +63,15 @@ public class UserService {
         });
     }
 
-    public User findByUsername(String username){
+    /**
+     * Recherche un user par son email.
+     * @param email de l'user à rechercher
+     * @return l'user correspondant à l'email
+     */
+    public Optional<User> findByEmail(String email){
+        return repository.findByEmail(email);
+    }
+    public Optional<User> findByUsername(String username){
         return repository.findByUsername(username);
     }
 
