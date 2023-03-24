@@ -11,6 +11,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class AuthenticationRequest {
 
+    /**
+     * Ces champs représentent les informations d'identification de l'utilisateur qui sont nécessaires pour l'authentification.
+     */
     private String email;
     String password;
 }
