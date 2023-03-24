@@ -1,21 +1,18 @@
 package com.niji.lille.nijiVerse.entities;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
+import jakarta.persistence.*;
+import lombok.*;
+
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
 @Table(name = "idee")
-public class Idee extends AbstractEntity{
+public class Idee {
 
     @Id
-    @Column(name = "id")
-    private String id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", nullable = false)
+    private Long id;
 
     @Column(name = "vote")
     private Integer vote;
@@ -25,4 +22,6 @@ public class Idee extends AbstractEntity{
 
     @Column(name = "description")
     private String description;
+
+
 }
