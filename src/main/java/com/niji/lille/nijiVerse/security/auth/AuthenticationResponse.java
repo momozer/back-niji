@@ -11,5 +11,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class AuthenticationResponse {
 
+
+    /**
+     * Ce champ stocke le token d'authentification généré par le serveur pour l'utilisateur qui s'est authentifié avec succès.
+     */
     private String token;
 }
