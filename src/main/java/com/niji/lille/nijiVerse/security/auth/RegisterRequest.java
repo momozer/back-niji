@@ -1,5 +1,6 @@
 package com.niji.lille.nijiVerse.security.auth;
 
+import com.niji.lille.nijiVerse.entities.Role;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
