@@ -131,7 +131,7 @@ public class AuthenticationService {
      * @param user utilisateur donné
      */
     private void revokeAllUserTokens(User user){
-        var validUserTokens = tokenRepository.finAllValidTokenByUser(user.getId());
+        var validUserTokens = tokenRepository.findAllValidTokenByUser(user.getId());
         if (validUserTokens.isEmpty())
             return;
         validUserTokens.forEach(token -> {

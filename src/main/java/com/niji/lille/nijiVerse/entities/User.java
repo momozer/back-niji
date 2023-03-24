@@ -44,8 +44,11 @@ public class User implements UserDetails {
     @Column(name = "email" )
     private String email;
 
+
+    //MD5 pour crypter le motPasse.
     @Column(name = "motPasse")
     private String motPasse;
+
 
    @Enumerated(EnumType.STRING)
     private Role role;
