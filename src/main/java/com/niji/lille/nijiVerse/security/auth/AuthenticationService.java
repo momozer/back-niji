@@ -109,7 +109,7 @@ public class AuthenticationService {
 
     /**
      * La méthode saveUserToken enregistre un jeton JWT
-     * pour un utilisateur donné dans la base de données à l'aide de tokenRepository.save(token).
+     * pour un utilisateur donné dans la BDD à l'aide de tokenRepository.save(token).
      * @param user utilisateur donné
      * @param jwtToken jeton d'authentification
      */
