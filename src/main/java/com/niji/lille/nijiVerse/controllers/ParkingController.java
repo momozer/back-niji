@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/parkings")
@@ -18,8 +19,22 @@ public class ParkingController {
     @Autowired
     private final ParkingService service;
 
+    @Autowired
+    private ParkingRepository repository;
+
     public ParkingController(ParkingService service) {
         this.service = service;
+    }
+
+    /**
+     * Mise a jour du nombre de place libres du parking
+     *
+     * @return nombre de places libres
+     */
+    @GetMapping("/places-disponibles")
+    public int getPlacesDisponibles(@PathVariable Long id){
+         Optional<Parking> parking = repository.findById(id);
+         return parking.isPresent() ? parking.get().getPlace() : 0;
     }
 
     /**
@@ -78,6 +93,7 @@ public class ParkingController {
     public void deleteById(Long id) {
         service.deleteById(id);
     }
+
 
 
 }

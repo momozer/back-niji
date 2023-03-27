@@ -11,6 +11,6 @@ public class ParkingProducer {
     private KafkaTemplate<String, String> kafkaTemplate;
 
     public void publishMessage(String message){
-        kafkaTemplate.send("place de parking : ", message);
+        kafkaTemplate.send("parking-topic", message);
     }
 }
