@@ -27,17 +27,6 @@ public class ParkingController {
     }
 
     /**
-     * Mise a jour du nombre de place libres du parking
-     *
-     * @return nombre de places libres
-     */
-    @GetMapping("/places-disponibles")
-    public int getPlacesDisponibles(@PathVariable Long id){
-         Optional<Parking> parking = repository.findById(id);
-         return parking.isPresent() ? parking.get().getPlace() : 0;
-    }
-
-    /**
      * Récupère tous les parking
      * @return la liste de tous les parkings
      */
