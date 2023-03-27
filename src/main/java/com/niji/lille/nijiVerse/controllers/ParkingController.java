@@ -1,6 +1,7 @@
 package com.niji.lille.nijiVerse.controllers;
 
 import com.niji.lille.nijiVerse.entities.Parking;
+import com.niji.lille.nijiVerse.repositories.ParkingRepository;
 import com.niji.lille.nijiVerse.services.ParkingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

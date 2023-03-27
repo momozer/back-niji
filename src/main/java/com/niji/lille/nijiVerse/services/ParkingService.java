@@ -19,6 +19,7 @@ public class ParkingService {
 
     private ParkingRepository repository;
 
+
     public ParkingService(ParkingRepository repository){
         this.repository = repository;
     }
@@ -29,6 +30,14 @@ public class ParkingService {
      */
     public List<Parking> findAll() {
         return repository.findAll();
+    }
+
+    /**
+     *
+     * @return
+     */
+    public int getPlacesDisponibles(){
+        return repository.getPlacesDisponibles();
     }
 
     /**
@@ -64,6 +73,7 @@ public class ParkingService {
             return new ResponseStatusException(HttpStatus.NOT_FOUND);
         });
     }
+
 
     /**
      * Supprime un event par son id

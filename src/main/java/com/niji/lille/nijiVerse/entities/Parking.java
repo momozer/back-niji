@@ -15,7 +15,7 @@ public class Parking {
 
 
     @Column(name = "placeMax")
-    private Integer place;
+    private int place;
 
 
     @Column(name = "occupant")
