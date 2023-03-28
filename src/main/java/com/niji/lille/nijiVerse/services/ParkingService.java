@@ -39,7 +39,7 @@ public class ParkingService {
      * @return
      */
     public int getPlacesDisponibles(){
-        return repository.getPlacesDisponibles();
+        return repository.getPlace();
     }
 
     /**

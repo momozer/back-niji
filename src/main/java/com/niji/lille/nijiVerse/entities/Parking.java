@@ -1,11 +1,15 @@
 package com.niji.lille.nijiVerse.entities;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 @Data
 @Entity
 @Table(name = "parking")
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class Parking {
 
     @Id
