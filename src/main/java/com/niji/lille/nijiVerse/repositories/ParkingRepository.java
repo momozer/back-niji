@@ -8,5 +8,4 @@ import java.util.Optional;
 public interface ParkingRepository extends JpaRepository<Parking, Long> {
 
 
-        int getPlace();
 }

@@ -18,12 +18,13 @@ public class Parking {
     private Long id;
 
 
-    @Column(name = "place")
-    private int place;
+    @Column(name = "places")
+    private int places;
 
 
     @Column(name = "occupant")
     private String occupant;
+
 
 
 }

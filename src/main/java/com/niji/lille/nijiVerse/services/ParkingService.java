@@ -35,14 +35,6 @@ public class ParkingService {
     }
 
     /**
-     *
-     * @return
-     */
-    public int getPlacesDisponibles(){
-        return repository.getPlace();
-    }
-
-    /**
      * Crée un nouveau parking
      * @param entity les infos du parking à créer
      * @return le parking sauvegardé
