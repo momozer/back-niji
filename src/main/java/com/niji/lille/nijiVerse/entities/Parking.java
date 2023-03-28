@@ -14,7 +14,7 @@ public class Parking {
     private Long id;
 
 
-    @Column(name = "placeMax")
+    @Column(name = "place")
     private int place;
 
 

@@ -29,8 +29,8 @@ public class Event {
     @Column(name = "commentaire")
     private String commentaire;
 
-    @Column(name = "organisateurId")
-    private String organisateurId;
+    @Column(name = "organisateur")
+    private String organisateur;
 
 
 }
