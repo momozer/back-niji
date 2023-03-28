@@ -4,6 +4,7 @@ import com.niji.lille.nijiVerse.entities.Event;
 import com.niji.lille.nijiVerse.entities.Parking;
 import com.niji.lille.nijiVerse.repositories.EventRepository;
 import com.niji.lille.nijiVerse.repositories.ParkingRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -13,6 +14,7 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.List;
 
 @Service
+@Slf4j
 public class ParkingService {
 
     private Logger logger = LoggerFactory.getLogger(Event.class);
@@ -25,7 +27,7 @@ public class ParkingService {
     }
 
     /**
-     * Récupère tous les parking
+     * Récupère
      * @return la liste de tous les parkings
      */
     public List<Parking> findAll() {

@@ -2,6 +2,7 @@ package com.niji.lille.nijiVerse.services;
 
 import com.niji.lille.nijiVerse.entities.User;
 import com.niji.lille.nijiVerse.repositories.UserRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -12,6 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@Slf4j
 public class UserService {
 
     private Logger logger = LoggerFactory.getLogger(User.class);
