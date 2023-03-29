@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/idees")
-@CrossOrigin
+@CrossOrigin("*")
 public class IdeeController {
 
     @Autowired
