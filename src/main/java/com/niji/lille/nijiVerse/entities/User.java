@@ -8,16 +8,14 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.aop.target.LazyInitTargetSource;
+import org.springframework.data.repository.cdi.Eager;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.time.LocalDate;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Data
 @Builder
@@ -49,8 +47,10 @@ public class User implements UserDetails {
     //MD5 pour crypter le motPasse.
     @Column(name = "motPasse")
     private String motPasse;
-
-
+///////////////////////////////////////////////////////////////////
+    @ManyToMany(fetch = FetchType.EAGER)
+    private Collection<RoleClass> roless = new ArrayList<>();
+/////////////////////////////////////////////////////////////////
    @Enumerated(EnumType.STRING)
     private Role role;
 
