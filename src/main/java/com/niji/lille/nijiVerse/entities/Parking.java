@@ -19,7 +19,7 @@ public class Parking {
 
 
     @Column(name = "places")
-    private int places;
+    private Integer places;
 
 
     @Column(name = "occupant")
