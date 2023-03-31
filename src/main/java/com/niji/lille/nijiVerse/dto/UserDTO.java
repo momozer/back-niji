@@ -31,7 +31,6 @@ public class UserDTO {
         User user = new User();
         user.setNom(userDTO.getNom());
         user.setUsername(userDTO.getUsername());
-        user.setNom(userDTO.getNom());
         user.setEmail(userDTO.getEmail());
         user.setDateNaissance(userDTO.getDateNaissance());
         user.setMotPasse(user.getMotPasse());
