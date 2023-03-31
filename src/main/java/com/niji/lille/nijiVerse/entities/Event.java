@@ -26,6 +26,9 @@ public class Event {
     @Column(name = "lieu", nullable = false)
     private String lieu;
 
+    @Column(name = "titre")
+    private String titre;
+
     @Column(name = "commentaire")
     private String commentaire;
 
