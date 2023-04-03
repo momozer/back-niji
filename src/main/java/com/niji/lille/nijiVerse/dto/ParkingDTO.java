@@ -7,7 +7,7 @@ import lombok.Data;
 @Builder @Data
 public class ParkingDTO {
     private Long id;
-    private Integer places;
+    private int places;
     private String occupant;
 
     public static ParkingDTO fromEntity(Parking parking){

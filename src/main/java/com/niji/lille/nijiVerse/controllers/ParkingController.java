@@ -5,6 +5,8 @@ import com.niji.lille.nijiVerse.repositories.ParkingRepository;
 import com.niji.lille.nijiVerse.services.ParkingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -31,6 +33,8 @@ public class ParkingController {
      * @return la liste de tous les parkings
      */
     @GetMapping("/all")
+    @MessageMapping("/user")
+    @SendTo("place-dispo")
     @ResponseStatus(code = HttpStatus.OK)
     public List<Parking> findAll() {
         return service.findAll();
@@ -53,6 +57,8 @@ public class ParkingController {
      * @return le parking modifié
      */
     @PutMapping("/edit/{id}")
+    @MessageMapping("places-restantes")
+    @SendTo("topic/greetings")
     @ResponseStatus(code = HttpStatus.ACCEPTED)
     public Parking update(@RequestBody Parking parking, @PathVariable Long id) {
         if (!id.equals(parking.getId())){
