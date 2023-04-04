@@ -1,4 +1,5 @@
 package com.niji.lille.nijiVerse.security.config;
+import com.niji.lille.nijiVerse.entities.User;
 
 import com.niji.lille.nijiVerse.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -8,11 +9,15 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
+
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+
+import java.util.Collections;
+import java.util.Optional;
 
 @Configuration
 @RequiredArgsConstructor
@@ -75,4 +80,12 @@ public class ApplicationConfig {
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }
+
+//    @Override
+//    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException{
+//        Optional<User> utilisateur = repository.findByEmail(email);
+//        return new org.springframework.security.core.userdetails.User("", "", Collections.emptyList());
+//    }
+
+
 }

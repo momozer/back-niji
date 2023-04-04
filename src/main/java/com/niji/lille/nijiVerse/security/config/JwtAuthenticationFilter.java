@@ -61,10 +61,12 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
          * de filtres. Sinon, il extrait le jeton JWT de l'en-tête, extrait le nom d'utilisateur correspondant en utilisant
          * le service JwtService, puis utilise le UserDetailsService pour charger les informations d'utilisateur correspondantes.
          */
+        System.out.println(request.getQueryString());
         if (authHeader == null || !authHeader.startsWith("Bearer ")){
             filterChain.doFilter(request, response);
             return;
         }
+        System.out.println("c quoi ça ?");
         jwt = authHeader.substring(7);
         userEmail = jwtService.extractUsername(jwt);
         /**

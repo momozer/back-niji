@@ -37,6 +37,7 @@ public class AuthenticationController {
     public ResponseEntity<AuthenticationResponse> register(
             @RequestBody RegisterRequest request
     ){
+        System.out.println("ici ");
         return ResponseEntity.ok(service.register(request));
     }
 
@@ -50,6 +51,7 @@ public class AuthenticationController {
     public ResponseEntity<AuthenticationResponse> authenticate(
             @RequestBody AuthenticationRequest request
     ){
+        System.out.println("authtneitcate");
         return ResponseEntity.ok(service.authenticate(request));
     }
 

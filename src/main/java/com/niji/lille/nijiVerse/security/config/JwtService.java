@@ -2,16 +2,12 @@ package com.niji.lille.nijiVerse.security.config;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import io.jsonwebtoken.io.Decoders;
-import io.jsonwebtoken.security.Keys;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import java.security.Key;
-import java.util.Date;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Function;
-import java.util.HashMap;
 
 
 @Service
@@ -76,7 +72,7 @@ public class JwtService {
                 .setSubject(userDetails.getUsername())
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 24))
-                .signWith(getSignInKey(), SignatureAlgorithm.HS256)
+                .signWith(SignatureAlgorithm.HS256, getSignInKey())
                 .compact();
     }
 
@@ -118,9 +114,8 @@ public class JwtService {
      */
     private  Claims extractAllClaims(String token){
         return Jwts
-                .parserBuilder()
+                .parser()
                 .setSigningKey(getSignInKey())
-                .build()
                 .parseClaimsJwt(token)
                 .getBody();
     }
@@ -131,9 +126,8 @@ public class JwtService {
      * et crée une instance de la classe Key à partir de celle-ci.
      * @return la clé secrète utilisée pour signer le JWT
      */
-    private Key getSignInKey(){
-        byte[] keyBytes = Decoders.BASE64.decode(SECRET_KEY);
-        return Keys.hmacShaKeyFor(keyBytes);
+    private String getSignInKey(){
+        return Base64.getEncoder().encodeToString(HexFormat.of().parseHex(SECRET_KEY));
     }
 
 
