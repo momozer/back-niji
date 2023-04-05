@@ -1,6 +1,6 @@
 package com.niji.lille.nijiVerse.security.auth;
 
-import com.niji.lille.nijiVerse.entities.Role;
+import com.niji.lille.nijiVerse.entities.ERole;
 import com.niji.lille.nijiVerse.entities.User;
 import com.niji.lille.nijiVerse.repositories.UserRepository;
 import com.niji.lille.nijiVerse.security.config.JwtService;
@@ -62,7 +62,7 @@ public class AuthenticationService {
                 .username(request.getUsername())
                 .email(request.getEmail())
                 .motPasse(passwordEncoder.encode(request.getMotPasse()))
-                .role(Role.USER)
+                .erole(ERole.ROLE_USER)
                 .build();
         var savedUser = repository.save(user);
         var jwtToken = jwtService.generateToken(user);

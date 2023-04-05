@@ -49,17 +49,17 @@ public class User implements UserDetails {
     private String motPasse;
 ///////////////////////////////////////////////////////////////////
     @ManyToMany(fetch = FetchType.EAGER)
-    private Collection<RoleClass> roless = new ArrayList<>();
+    private Collection<Role> role = new ArrayList<>();
 /////////////////////////////////////////////////////////////////
    @Enumerated(EnumType.STRING)
-    private Role role;
+    private ERole erole;
 
    @OneToMany(mappedBy = "user")
     private List<Token> tokens;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority(role.name()));
+        return List.of(new SimpleGrantedAuthority(erole.name()));
     }
 
     @Override

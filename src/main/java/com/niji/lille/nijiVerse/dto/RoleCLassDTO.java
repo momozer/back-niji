@@ -1,6 +1,6 @@
 package com.niji.lille.nijiVerse.dto;
 
-import com.niji.lille.nijiVerse.entities.RoleClass;
+import com.niji.lille.nijiVerse.entities.Role;
 import lombok.Builder;
 import lombok.Data;
 
@@ -11,19 +11,19 @@ public class RoleCLassDTO {
     private Long id;
     private String name;
 
-    public static RoleCLassDTO fromEntity(RoleClass roleClass){
+    public static RoleCLassDTO fromEntity(Role roleClass){
         if (roleClass == null){
             return null;
         }
         return RoleCLassDTO.builder().build();
     }
 
-    public static RoleClass toEntity(RoleCLassDTO roleCLassDTO){
+    public static Role toEntity(RoleCLassDTO roleCLassDTO){
         if (roleCLassDTO == null){
             return null;
         }
-        RoleClass roleClass = new RoleClass();
-        roleClass.setName(roleCLassDTO.getName());
-        return roleClass;
+        Role role = new Role();
+        role.setName(roleCLassDTO.getName());
+        return role;
     }
 }
