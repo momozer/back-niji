@@ -6,11 +6,12 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
-      ddl-auto: update
-
-#    show-sql: true
-#    properties:
-#      hibernate:
-#        dialect: org.hibernate.dialect.MySQLDialect
+      ddl-auto: create
     server:
       port: 8081
+
+#App properties
+nijiVerse:
+  app:
+    jwtSecret: secretKeyofMeWhatYouSeeIsWhat123KEJKLNFEZJNFKEZJNfzeknfzklnfz49834827sfndfezlkfekzkefz
+    jwtExpirationsMs: 86400000
