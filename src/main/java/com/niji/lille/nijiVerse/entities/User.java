@@ -49,6 +49,8 @@ public class User implements UserDetails {
     private ERole erole;
 
 
+    //TODO
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority(erole.name()));
