@@ -1,5 +1,4 @@
 package com.niji.lille.nijiVerse.entities;
-import com.niji.lille.nijiVerse.security.token.Token;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -49,8 +48,6 @@ public class User implements UserDetails {
    @Enumerated(EnumType.STRING)
     private ERole erole;
 
-   @OneToMany(mappedBy = "user")
-    private List<Token> tokens;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
