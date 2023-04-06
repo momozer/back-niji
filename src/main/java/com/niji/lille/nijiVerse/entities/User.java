@@ -3,10 +3,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,8 +13,6 @@ import java.util.*;
 @Data
 @Builder
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor
 @Table(name = "_user",
 uniqueConstraints = {
         @UniqueConstraint(columnNames = "username"),
@@ -52,7 +47,51 @@ public class User{
     private Set<Role> roles = new HashSet<>();
 
 
+    public User(String username, String email, String motPasse) {
+        this.username = username;
+        this.email = email;
+        this.motPasse = motPasse;
+    }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getMotPasse() {
+        return motPasse;
+    }
+
+    public void setPassword(String password) {
+        this.motPasse = motPasse;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
 
 
 }
