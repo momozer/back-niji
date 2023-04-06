@@ -1,20 +1,14 @@
 package com.niji.lille.nijiVerse.entities;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.niji.lille.nijiVerse.security.token.Token;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.aop.target.LazyInitTargetSource;
-import org.springframework.data.repository.cdi.Eager;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.CrossOrigin;
 
-import java.time.LocalDate;
 import java.util.*;
 
 @Data
