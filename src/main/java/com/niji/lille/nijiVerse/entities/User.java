@@ -1,5 +1,8 @@
 package com.niji.lille.nijiVerse.entities;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -24,16 +27,20 @@ public class User implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private Long id;
 
     @Column(name = "username")
+    @NotBlank @Size(max = 20)
     private String username;
 
     @Column(name = "email" )
+    @NotBlank @Size(max = 20)
+    @Email
     private String email;
 
     @Column(name = "motPasse")
+    @NotBlank @Size(max = 120)
     private String motPasse;
 
 
@@ -45,41 +52,7 @@ public class User implements UserDetails {
     private Set<Role> roles = new HashSet<>();
 
 
-   @Enumerated(EnumType.STRING)
-    private ERole erole;
 
-
-    //TODO
-
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority(erole.name()));
-    }
-
-    @Override
-    public String getPassword() {
-        return motPasse;
-    }
-
-    @Override
-    public boolean isAccountNonExpired() {
-        return false;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return true;
-    }
 
 
 }
