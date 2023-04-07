@@ -9,7 +9,6 @@ import java.util.*;
 
 
 @Data
-@Builder
 @Entity
 @Table(name = "_user",
 uniqueConstraints = {

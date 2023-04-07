@@ -4,9 +4,6 @@ import com.niji.lille.nijiVerse.security.jwt.AuthEntryPointJwt;
 import com.niji.lille.nijiVerse.security.jwt.AuthTokenFilter;
 import com.niji.lille.nijiVerse.security.jwt.JwtUtils;
 import com.niji.lille.nijiVerse.security.servicesSecu.UserDetailsServiceImpl;
-import jdk.jfr.Name;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -22,14 +19,20 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 @Configuration
 @EnableMethodSecurity
-@AllArgsConstructor @NoArgsConstructor
 public class WebSecurityConfig {
     private UserDetailsServiceImpl userDetailsService;
     private AuthEntryPointJwt unauthorizedHandler;
 
     private JwtUtils jwtUtils;
+
+    public WebSecurityConfig(UserDetailsServiceImpl userDetailsService, AuthEntryPointJwt unauthorizedHandler
+            , JwtUtils jwtUtils) {
+        this.userDetailsService = userDetailsService;
+        this.unauthorizedHandler = unauthorizedHandler;
+        this.jwtUtils = jwtUtils;
+    }
     @Bean
-    public AuthTokenFilter authenticationJwtTOkenFilter(){
+    public AuthTokenFilter authenticationJwtTokenFilter(){
         return new AuthTokenFilter(jwtUtils, userDetailsService);
     }
 
@@ -62,7 +65,7 @@ public class WebSecurityConfig {
                 .anyRequest().authenticated();
 
         httpSecurity.authenticationProvider(authenticationProvider());
-        httpSecurity.addFilterBefore(authenticationJwtTOkenFilter(), UsernamePasswordAuthenticationFilter.class);
+        httpSecurity.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
         return httpSecurity.build();
     }
 
