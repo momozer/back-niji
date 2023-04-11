@@ -33,7 +33,7 @@ public class User{
 
     @Column(name = "motPasse")
     @NotBlank @Size(max = 120)
-    private String motPasse;
+    private String password;
 
 
     @ManyToMany(fetch = FetchType.LAZY)
@@ -48,10 +48,10 @@ public class User{
 
     }
 
-    public User(String username, String email, String motPasse) {
+    public User(String username, String email, String password) {
         this.username = username;
         this.email = email;
-        this.motPasse = motPasse;
+        this.password = password;
     }
 
     public Long getId() {
@@ -78,12 +78,12 @@ public class User{
         this.email = email;
     }
 
-    public String getMotPasse() {
-        return motPasse;
+    public String getPassword() {
+        return password;
     }
 
     public void setPassword(String password) {
-        this.motPasse = motPasse;
+        this.password = password;
     }
 
     public Set<Role> getRoles() {

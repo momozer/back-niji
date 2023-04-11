@@ -42,8 +42,9 @@ public class AuthController {
     @PostMapping("/signin")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest){
         Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(loginRequest.getEmail(), loginRequest.getMotPasse())
+                new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword())
         );
+        System.out.println("essaye genrated token");
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String jwt = jwtUtils.generateJwtToken(authentication);
 
@@ -79,7 +80,7 @@ public class AuthController {
         User user = new User(
                 signupRequest.getUsername(),
                 signupRequest.getEmail(),
-                encoder.encode(signupRequest.getMotPasse())
+                encoder.encode(signupRequest.getPassword())
         );
 
         Set<String> strRoles = signupRequest.getRole();
