@@ -9,7 +9,7 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.List;
 
 @RestController
-@RequestMapping("/idees")
+@RequestMapping("/nijiverse/idees")
 @CrossOrigin("*")
 public class IdeeController {
 
