@@ -62,8 +62,8 @@ public class WebSecurityConfig {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 .authorizeHttpRequests().requestMatchers("/nijiverse/auth/**").permitAll()
                 .requestMatchers("/nijiverse/test/**").permitAll()
-                .requestMatchers("/nijiverse/auth/signin/**").permitAll()
-                .requestMatchers("/nijiverse/auth/signup/**").permitAll()
+                .requestMatchers("/nijiverse/auth/signin").permitAll()
+                .requestMatchers("/nijiverse/auth/signup").permitAll()
                 .anyRequest().authenticated();
 
         httpSecurity.authenticationProvider(authenticationProvider());
