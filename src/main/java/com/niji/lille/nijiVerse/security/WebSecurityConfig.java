@@ -60,8 +60,8 @@ public class WebSecurityConfig {
         httpSecurity.cors().and().csrf().disable()
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-                .authorizeHttpRequests().requestMatchers("/api/auth/**").permitAll()
-                .requestMatchers("/api/test/**").permitAll()
+                .authorizeHttpRequests().requestMatchers("/nijiverse/auth/**").permitAll()
+                .requestMatchers("/nijiverse/test/**").permitAll()
                 .anyRequest().authenticated();
 
         httpSecurity.authenticationProvider(authenticationProvider());
