@@ -13,7 +13,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/nijiverse/events")
 @CrossOrigin(origins = "*", maxAge = 3600)
-@PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
 public class EventController {
 
     @Autowired
@@ -30,6 +29,7 @@ public class EventController {
      */
     @GetMapping("/all")
     @ResponseStatus(code = HttpStatus.OK)
+    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
     public List<Event> findAll() {
         return service.findAll();
     }
@@ -42,6 +42,7 @@ public class EventController {
      */
     @PostMapping("/create")
     @ResponseStatus(code = HttpStatus.CREATED)
+    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
     public Event save(@RequestBody Event entity) {
         return service.save(entity);
     }
@@ -53,6 +54,7 @@ public class EventController {
      * @return l'event modifié
      */
     @PutMapping("/edit/{id}")
+    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
     @ResponseStatus(code = HttpStatus.ACCEPTED)
     public Event update(@RequestBody Event event, @PathVariable Long id) {
         if (!id.equals(event.getId())){
@@ -69,6 +71,7 @@ public class EventController {
      */
     @GetMapping("/{id}")
     @ResponseStatus(code = HttpStatus.FOUND)
+    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
     public Event findById(@PathVariable Long id) {
         return service.findById(id);
     }
@@ -80,6 +83,7 @@ public class EventController {
      */
     @DeleteMapping("/delete/{id}")
     @ResponseStatus(code = HttpStatus.OK)
+    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
     public void deleteById(@PathVariable Long id) {
         service.deleteById(id);
     }

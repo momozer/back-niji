@@ -12,7 +12,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/nijiverse/idees")
 @CrossOrigin(origins = "*", maxAge = 3600)
-
 public class IdeeController {
 
     @Autowired

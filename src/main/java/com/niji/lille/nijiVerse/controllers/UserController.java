@@ -13,7 +13,6 @@ import java.util.Optional;
 @RestController
 @RequestMapping("nijiverse/users")
 @CrossOrigin(origins = "*", maxAge = 3600)
-@PreAuthorize("hasRole('ADMIN')")
 public class UserController {
 
     //TODO
@@ -32,6 +31,7 @@ public class UserController {
      */
     @GetMapping("/all")
     @ResponseStatus(code = HttpStatus.OK)
+    @PreAuthorize("hasRole('ADMIN')")
     public List<User> findAll() {
         return service.findAll();
     }
@@ -44,6 +44,7 @@ public class UserController {
      */
     @PostMapping("/create")
     @ResponseStatus(code = HttpStatus.CREATED)
+    @PreAuthorize("hasRole('ADMIN')")
     public User save(@RequestBody User entity) {
         return service.save(entity);
     }
@@ -56,6 +57,7 @@ public class UserController {
      */
     @PutMapping("/edit/{id}")
     @ResponseStatus(code = HttpStatus.ACCEPTED)
+    @PreAuthorize("hasRole('ADMIN')")
     public User update(@RequestBody User user, @PathVariable Long id) {
         if ( !id.equals(user.getId())){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Id non trouvé.");
@@ -71,6 +73,7 @@ public class UserController {
      */
     @GetMapping("/{id}")
     @ResponseStatus(code = HttpStatus.FOUND)
+    @PreAuthorize("hasRole('ADMIN')")
     public User findById(@PathVariable Long id) {
         return service.findById(id);
     }
@@ -83,6 +86,7 @@ public class UserController {
      */
     @GetMapping("/{email}")
     @ResponseStatus(code = HttpStatus.FOUND)
+    @PreAuthorize("hasRole('ADMIN')")
     public Optional<User> findByEmail(@PathVariable String email){
         return  service.findByEmail(email);
     }
@@ -94,6 +98,7 @@ public class UserController {
      */
     @GetMapping("/username")
     @ResponseStatus(code = HttpStatus.FOUND)
+    @PreAuthorize("hasRole('ADMIN')")
     public Optional<User> findByUsername(@PathVariable String username){
         return service.findByUsername(username);
     }
@@ -105,6 +110,7 @@ public class UserController {
      */
     @DeleteMapping("/delete/{id}")
     @ResponseStatus(code = HttpStatus.OK)
+    @PreAuthorize("hasRole('ADMIN')")
     public void deleteById(@PathVariable Long id) {
         service.deleteById(id);
     }
