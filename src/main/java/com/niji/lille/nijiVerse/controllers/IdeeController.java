@@ -3,6 +3,7 @@ import com.niji.lille.nijiVerse.entities.Idee;
 import com.niji.lille.nijiVerse.services.IdeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -11,6 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/nijiverse/idees")
 @CrossOrigin("*")
+@PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
 public class IdeeController {
 
     @Autowired

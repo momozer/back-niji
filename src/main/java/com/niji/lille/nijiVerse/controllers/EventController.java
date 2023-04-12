@@ -4,6 +4,7 @@ import com.niji.lille.nijiVerse.entities.Event;
 import com.niji.lille.nijiVerse.services.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -12,6 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/nijiverse/events")
 @CrossOrigin("*")
+@PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
 public class EventController {
 
     @Autowired

@@ -3,6 +3,7 @@ import com.niji.lille.nijiVerse.entities.User;
 import com.niji.lille.nijiVerse.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -12,6 +13,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("nijiverse/users")
 @CrossOrigin("*")
+@PreAuthorize("hasRole('ADMIN')")
 public class UserController {
 
     //TODO
