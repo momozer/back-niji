@@ -16,7 +16,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/nijiverse/parkings")
-@CrossOrigin("*")
+@CrossOrigin(origins = "*", maxAge = 3600)
 @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
 public class ParkingController {
 

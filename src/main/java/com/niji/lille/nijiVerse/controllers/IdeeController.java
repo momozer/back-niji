@@ -11,8 +11,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/nijiverse/idees")
-@CrossOrigin("*")
-@PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
+@CrossOrigin(origins = "*", maxAge = 3600)
+
 public class IdeeController {
 
     @Autowired
@@ -29,6 +29,7 @@ public class IdeeController {
      */
     @GetMapping("/all")
     @ResponseStatus(code = HttpStatus.OK)
+    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
     List<Idee> findAll() {
         return service.findAll();
     }
@@ -41,6 +42,7 @@ public class IdeeController {
      */
     @PostMapping("/create")
     @ResponseStatus(code = HttpStatus.CREATED)
+    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
     Idee save(@RequestBody Idee entity) {
         return service.save(entity);
     }
@@ -53,6 +55,7 @@ public class IdeeController {
      */
     @PutMapping("/edit/{id}")
     @ResponseStatus(code = HttpStatus.ACCEPTED)
+    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
     Idee update(@RequestBody Idee idee, @PathVariable Long id) {
         if (!id.equals(idee.getId())){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Id non trouvé.");
@@ -68,6 +71,7 @@ public class IdeeController {
      */
     @GetMapping("/{id}")
     @ResponseStatus(code = HttpStatus.FOUND)
+    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
     Idee findById(@PathVariable Long id) {
         return service.findById(id);
     }
@@ -79,6 +83,7 @@ public class IdeeController {
      */
     @DeleteMapping("/delete/{id}")
     @ResponseStatus(code = HttpStatus.OK)
+    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
     void deleteById(@PathVariable Long id) {
         service.deleteById(id);
     }

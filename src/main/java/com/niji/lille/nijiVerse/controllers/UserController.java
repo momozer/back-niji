@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("nijiverse/users")
-@CrossOrigin("*")
+@CrossOrigin(origins = "*", maxAge = 3600)
 @PreAuthorize("hasRole('ADMIN')")
 public class UserController {
 

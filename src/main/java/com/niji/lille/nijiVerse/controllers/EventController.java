@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/nijiverse/events")
-@CrossOrigin("*")
+@CrossOrigin(origins = "*", maxAge = 3600)
 @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
 public class EventController {
 
