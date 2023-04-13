@@ -13,9 +13,9 @@ import java.util.Optional;
 @RestController
 @RequestMapping("nijiverse/users")
 @CrossOrigin(origins = "*", maxAge = 3600)
-public class UserController {
+class UserController {
 
-    //TODO
+    //TODO = preauthorize;
 
     @Autowired
     private final UserService service;

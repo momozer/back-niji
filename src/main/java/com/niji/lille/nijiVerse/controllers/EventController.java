@@ -13,7 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/nijiverse/events")
 @CrossOrigin(origins = "*", maxAge = 3600)
-public class EventController {
+class EventController {
 
     @Autowired
     private final EventService service;

@@ -31,7 +31,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/nijiverse/auth")
 @AllArgsConstructor
-public class AuthController {
+class AuthController {
 
     private AuthenticationManager authenticationManager;
     private UserRepository userRepository;

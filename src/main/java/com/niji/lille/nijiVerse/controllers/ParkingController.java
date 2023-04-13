@@ -18,7 +18,7 @@ import java.util.Optional;
 @RequestMapping("/nijiverse/parkings")
 @CrossOrigin(origins = "*", maxAge = 3600)
 @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
-public class ParkingController {
+class ParkingController {
 
     @Autowired
     private final ParkingService service;
