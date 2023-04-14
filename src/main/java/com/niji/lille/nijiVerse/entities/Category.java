@@ -10,5 +10,5 @@ public enum Category {
     TECH,
     ANNIVERSAIRE,
     JEU,
-    AUTRE
+    AUTRE;
 }

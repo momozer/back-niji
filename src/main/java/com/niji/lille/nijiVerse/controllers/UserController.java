@@ -1,6 +1,6 @@
 package com.niji.lille.nijiVerse.controllers;
 import com.niji.lille.nijiVerse.entities.User;
-import com.niji.lille.nijiVerse.services.UserService;
+import com.niji.lille.nijiVerse.services.serviceImpl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -18,9 +18,9 @@ class UserController {
     //TODO = preauthorize;
 
     @Autowired
-    private final UserService service;
+    private final UserServiceImpl service;
 
-    public UserController(UserService service) {
+    public UserController(UserServiceImpl service) {
         this.service = service;
     }
 
