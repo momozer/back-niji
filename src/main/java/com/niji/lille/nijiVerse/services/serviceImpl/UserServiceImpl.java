@@ -2,6 +2,7 @@ package com.niji.lille.nijiVerse.services.serviceImpl;
 
 import com.niji.lille.nijiVerse.entities.User;
 import com.niji.lille.nijiVerse.repositories.UserRepository;
+import com.niji.lille.nijiVerse.services.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,11 +15,11 @@ import java.util.Optional;
 
 @Service
 @Slf4j
-public class UserServiceImpl {
+public class UserServiceImpl implements UserService {
     //TODO
     private Logger logger = LoggerFactory.getLogger(User.class);
 
-    private UserRepository repository;
+    private final UserRepository repository;
     public UserServiceImpl(UserRepository repository){
         this.repository = repository;
     }

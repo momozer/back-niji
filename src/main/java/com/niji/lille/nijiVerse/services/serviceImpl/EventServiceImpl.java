@@ -2,6 +2,7 @@ package com.niji.lille.nijiVerse.services.serviceImpl;
 
 import com.niji.lille.nijiVerse.entities.Event;
 import com.niji.lille.nijiVerse.repositories.EventRepository;
+import com.niji.lille.nijiVerse.services.EventService;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,7 +14,7 @@ import java.util.List;
 
 @Service
 @Slf4j
-public class EventServiceImpl {
+public class EventServiceImpl implements EventService {
 
     private Logger logger = LoggerFactory.getLogger(Event.class);
 

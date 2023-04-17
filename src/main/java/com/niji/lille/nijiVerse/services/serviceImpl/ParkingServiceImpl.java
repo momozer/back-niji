@@ -1,8 +1,9 @@
-package com.niji.lille.nijiVerse.services;
+package com.niji.lille.nijiVerse.services.serviceImpl;
 
 import com.niji.lille.nijiVerse.entities.Event;
 import com.niji.lille.nijiVerse.entities.Parking;
 import com.niji.lille.nijiVerse.repositories.ParkingRepository;
+import com.niji.lille.nijiVerse.services.ParkingService;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,7 +15,7 @@ import java.util.List;
 
 @Service
 @Slf4j
-public class ParkingServiceImpl {
+public class ParkingServiceImpl implements ParkingService {
 
     private Logger logger = LoggerFactory.getLogger(Event.class);
 

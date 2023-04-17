@@ -2,6 +2,7 @@ package com.niji.lille.nijiVerse.services.serviceImpl;
 
 import com.niji.lille.nijiVerse.entities.Idee;
 import com.niji.lille.nijiVerse.repositories.IdeeRepository;
+import com.niji.lille.nijiVerse.services.IdeeService;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,7 +14,7 @@ import java.util.List;
 
 @Service
 @Slf4j
-public class IdeeServiceImpl {
+public class IdeeServiceImpl implements IdeeService {
 
     private Logger logger = LoggerFactory.getLogger(Idee.class);
 
