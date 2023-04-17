@@ -16,7 +16,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/nijiverse/parkings")
 @CrossOrigin(origins = "*", maxAge = 3600)
-@PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
+
 class ParkingController {
 
     @Autowired
@@ -36,6 +36,7 @@ class ParkingController {
     @GetMapping("/all")
     @MessageMapping("/user")
     @SendTo("place-dispo")
+    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
     @ResponseStatus(code = HttpStatus.OK)
     public List<Parking> findAll() {
         return service.findAll();
@@ -47,6 +48,7 @@ class ParkingController {
      * @return le parking sauvegardé
      */
     @PostMapping("/create")
+    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
     @ResponseStatus(code = HttpStatus.CREATED)
     public Parking save(@RequestBody Parking entity) {
         return service.save(entity);
@@ -59,6 +61,7 @@ class ParkingController {
      */
     @PutMapping("/edit/{id}")
     @MessageMapping("places-restantes")
+    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
     @SendTo("topic/greetings")
     @ResponseStatus(code = HttpStatus.ACCEPTED)
     public Parking update(@RequestBody Parking parking, @PathVariable Long id) {
@@ -75,6 +78,7 @@ class ParkingController {
      * @return le parking trouvé
      */
     @GetMapping("/{id}")
+    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
     @ResponseStatus(code = HttpStatus.FOUND)
     public Parking findById(Long id) {
             return service.findById(id);
@@ -85,6 +89,7 @@ class ParkingController {
      * @param id l'id de l'event à supprimer
      */
     @DeleteMapping("/delete/{id}")
+    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
     @ResponseStatus(code = HttpStatus.OK)
     public void deleteById(Long id) {
         service.deleteById(id);
