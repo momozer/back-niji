@@ -23,7 +23,7 @@ public interface UserService {
      * @param user les informations du user à modifier
      * @return l'user modifié
      */
-    public User update(User user) ;
+    User update(User user) ;
 
     /**
      * Recherche un user par son id.
@@ -31,19 +31,19 @@ public interface UserService {
      * @param id l'id du user à trouver
      * @return l'user trouvé
      */
-    public User findById(Long id) ;
+     User findById(Long id) ;
 
     /**
      * Recherche un user par son email.
      * @param email de l'user à rechercher
      * @return l'user correspondant à l'email
      */
-    public Optional<User> findByEmail(String email);
-    public Optional<User> findByUsername(String username);
+     Optional<User> findByEmail(String email);
+     Optional<User> findByUsername(String username);
 
     /**
      * Supprime un user par son id
      * @param id l'id du user à supprimer
      */
-    public void deleteById(Long id);
+     void deleteById(Long id);
 }
