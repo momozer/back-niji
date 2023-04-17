@@ -23,11 +23,11 @@ public class User{
     private Long id;
 
     @Column(name = "username")
-    @NotBlank @Size(max = 20)
+    @NotBlank @Size(max = 50)
     private String username;
 
     @Column(name = "email" )
-    @NotBlank @Size(max = 20)
+    @NotBlank @Size(max = 50)
     @Email
     private String email;
 
