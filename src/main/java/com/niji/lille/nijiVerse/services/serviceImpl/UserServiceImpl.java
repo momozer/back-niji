@@ -29,6 +29,7 @@ public class UserServiceImpl implements UserService {
      * @return la liste de tous les users
      */
     public List<User> findAll() {
+        logger.info("Return all existing users");
         return repository.findAll();
     }
 
@@ -38,6 +39,7 @@ public class UserServiceImpl implements UserService {
      * @return l'user sauvegardé
      */
     public User save(User entity) {
+        logger.info("Save a new user");
         return repository.save(entity);
     }
 
@@ -50,6 +52,7 @@ public class UserServiceImpl implements UserService {
         if (!this.repository.existsById(user.getId())){
             throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, "User non trouvé.");
         }
+        logger.info("Update the user");
         return this.repository.save(user);
     }
 
@@ -60,6 +63,7 @@ public class UserServiceImpl implements UserService {
      * @return l'user trouvé
      */
     public User findById(Long id) {
+        logger.info("Returns the user by his id");
         return repository.findById(id).orElseThrow(() -> {
             logger.warn("findByIdInvalid: " +id);
             return new ResponseStatusException(HttpStatus.NOT_FOUND);
@@ -72,9 +76,11 @@ public class UserServiceImpl implements UserService {
      * @return l'user correspondant à l'email
      */
     public Optional<User> findByEmail(String email){
+        logger.info("Returns the user by his email");
         return repository.findByEmail(email);
     }
     public Optional<User> findByUsername(String username){
+        logger.info("Returns the user by his username");
         return repository.findByUsername(username);
     }
 
@@ -83,6 +89,7 @@ public class UserServiceImpl implements UserService {
      * @param id l'id du user à supprimer
      */
     public void deleteById(Long id) {
+        logger.info("Delete the user by his id");
         repository.deleteById(id);
     }
 
