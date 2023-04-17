@@ -29,6 +29,7 @@ public class IdeeServiceImpl implements IdeeService {
      * @return la liste de toutes les idees
      */
     public List<Idee> findAll() {
+        logger.info("Return all Idee");
         return repository.findAll();
     }
 
@@ -38,6 +39,7 @@ public class IdeeServiceImpl implements IdeeService {
      * @return l'idee sauvegardée
      */
     public Idee save(Idee entity) {
+        logger.info("save a new idea " + entity);
         return repository.save(entity);
     }
 
@@ -48,8 +50,10 @@ public class IdeeServiceImpl implements IdeeService {
      */
     public Idee update(Idee idee) {
         if (!this.repository.existsById(idee.getId())){
+            logger.warn("returns if the idee is found " + idee.getId() + idee.getTitre());
             throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, "idee non trouvé.");
         }
+        logger.info("save a new idee " + idee);
         return this.repository.save(idee);
     }
 
@@ -70,6 +74,7 @@ public class IdeeServiceImpl implements IdeeService {
      * @param id l'id de l'idee à supprimer
      */
     public void deleteById(Long id){
+        logger.info("delete idee "+ id);
         repository.deleteById(id);
     }
 }
