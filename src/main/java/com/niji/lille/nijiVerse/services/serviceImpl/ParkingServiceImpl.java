@@ -31,6 +31,7 @@ public class ParkingServiceImpl implements ParkingService {
      * @return la liste de tous les parkings
      */
     public List<Parking> findAll() {
+        logger.info("returns all parking");
         return repository.findAll();
     }
 
@@ -40,6 +41,7 @@ public class ParkingServiceImpl implements ParkingService {
      * @return le parking sauvegardé
      */
     public Parking save(Parking entity) {
+        logger.info("Save a parking: " + entity);
         return repository.save(entity);
     }
 
@@ -50,8 +52,10 @@ public class ParkingServiceImpl implements ParkingService {
      */
     public Parking update(Parking parking) {
         if (!this.repository.existsById(parking.getId())){
+            logger.warn("The parking dont existing" + parking.getId());
             throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, "event non trouvé.");
         }
+        logger.info("Update the parking parking");
         return this.repository.save(parking);
     }
 
@@ -62,6 +66,7 @@ public class ParkingServiceImpl implements ParkingService {
      * @return le parking trouvé
      */
     public Parking findById(Long id) {
+        logger.info("returns parking by id" + id);
         return repository.findById(id).orElseThrow(() -> {
             logger.warn("findByIdInvalid: " +id);
             return new ResponseStatusException(HttpStatus.NOT_FOUND);
@@ -74,6 +79,7 @@ public class ParkingServiceImpl implements ParkingService {
      * @param id l'id de l'event à supprimer
      */
     public void deleteById(Long id) {
+        logger.info("delete a parking by id : "+id);
         repository.deleteById(id);
     }
 }
