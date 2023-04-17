@@ -16,6 +16,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 
 @Configuration
@@ -61,13 +62,13 @@ public class WebSecurityConfig {
         httpSecurity.cors().and().csrf().disable()
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-                .authorizeHttpRequests().requestMatchers("/nijiverse/auth/**").permitAll()
-                .requestMatchers("/nijiverse/test/**").permitAll()
-                .requestMatchers("/nijiverse/parkings/**").permitAll()
-                .requestMatchers("/nijiverse/idees/**").permitAll()
-                .requestMatchers("/nijiverse/users/**").permitAll()
-                .requestMatchers("/nijiverse/events/**").permitAll()
-                .anyRequest().authenticated();
+                .authorizeHttpRequests().requestMatchers(new AntPathRequestMatcher("/nijiverse/auth/**")).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/nijiverse/test/**")).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/nijiverse/parkings/**")).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/nijiverse/idees/**")).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/nijiverse/users/**")).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/nijiverse/events/**")).permitAll()
+                .anyRequest().permitAll();
 
         httpSecurity.authenticationProvider(authenticationProvider());
         httpSecurity.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);

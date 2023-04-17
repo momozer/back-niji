@@ -29,6 +29,7 @@ public class EventServiceImpl implements EventService {
      * @return la liste de tous les events
      */
     public List<Event> findAll() {
+        logger.info("Return all Event");
         return repository.findAll();
     }
 
@@ -38,6 +39,7 @@ public class EventServiceImpl implements EventService {
      * @return l'event sauvegardé
      */
     public Event save(Event entity) {
+        logger.info("save a new entity "+ entity);
         return repository.save(entity);
     }
 
@@ -48,6 +50,7 @@ public class EventServiceImpl implements EventService {
      */
     public Event update(Event event) {
         if (!this.repository.existsById(event.getId())){
+            logger.warn("if the ");
             throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, "event non trouvé.");
         }
         return this.repository.save(event);
