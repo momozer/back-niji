@@ -7,7 +7,6 @@ import lombok.*;
 
 import java.util.*;
 
-
 @Data
 @Entity
 @Table(name = "_user",
