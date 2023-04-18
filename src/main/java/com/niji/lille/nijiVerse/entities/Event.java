@@ -3,8 +3,7 @@ package com.niji.lille.nijiVerse.entities;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.Data;
-
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 @Entity
@@ -18,7 +17,7 @@ public class Event {
 
     @Column(name = "date", nullable = false)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy HH:mm")
-    private LocalDate date;
+    private LocalDateTime date;
 
     @Column(name = "category", nullable = false)
     private Category category;
