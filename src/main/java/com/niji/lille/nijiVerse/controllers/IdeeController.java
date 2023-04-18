@@ -86,4 +86,7 @@ class IdeeController {
     void deleteById(@PathVariable Long id) {
         service.deleteById(id);
     }
+
+
+    // TODO: new route to retrieve ideas by page and count
 }

@@ -28,11 +28,15 @@ public class Event {
     @Column(name = "titre")
     private String titre;
 
-    @Column(name = "commentaire")
-    private String commentaire;
+    @Column(name = "description")
+    private String description;
 
+    // TODO : join column with user_id
+    //@ManyToOne()
     @Column(name = "organisateur")
     private String organisateur;
 
+    @Column(name="image_url")
+    private String image_url;
 
 }

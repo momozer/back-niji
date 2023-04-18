@@ -87,4 +87,6 @@ class EventController {
     public void deleteById(@PathVariable Long id) {
         service.deleteById(id);
     }
+
+    // TODO: Route which returns all the availables categories for event creation
 }

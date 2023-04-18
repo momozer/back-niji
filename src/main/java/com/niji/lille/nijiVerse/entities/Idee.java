@@ -23,5 +23,6 @@ public class Idee {
     @Column(name = "description")
     private String description;
 
+    // TODO: add creator id (ManyToOne)
 
 }
