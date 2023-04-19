@@ -1,6 +1,6 @@
 package com.niji.lille.nijiVerse.entities;
 
-public enum Category {
+public enum ECategory {
     RESTO,
     PATE,
     REX,

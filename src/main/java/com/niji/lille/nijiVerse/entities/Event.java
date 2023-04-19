@@ -20,7 +20,7 @@ public class Event {
     private LocalDateTime date;
 
     @Column(name = "category", nullable = false)
-    private Category category;
+    private ECategory ECategory;
 
     @Column(name = "lieu", nullable = false)
     private String lieu;
