@@ -16,7 +16,6 @@ import java.util.Optional;
 @Service
 @Slf4j
 public class UserServiceImpl implements UserService {
-    //TODO
     private Logger logger = LoggerFactory.getLogger(User.class);
 
     private final UserRepository repository;
