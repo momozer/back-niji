@@ -80,8 +80,6 @@ class EventController {
     }
 
 
-    // TODO: Route which returns all the availables categories for event creation in json
-
     /**
      * Get all category in JSON format, to create an event
      * @return all event categories in JSON format to create an event or search (?)
