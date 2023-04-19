@@ -1,5 +1,6 @@
 package com.niji.lille.nijiVerse.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.Data;
 

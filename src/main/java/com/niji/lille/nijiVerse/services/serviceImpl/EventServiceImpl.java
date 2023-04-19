@@ -50,7 +50,7 @@ public class EventServiceImpl implements EventService {
      */
     public Event update(Event event) {
         if (!this.repository.existsById(event.getId())){
-            logger.warn("if the ");
+            logger.warn("if the  event "+ event.getId() +" not exist");
             throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, "event non trouvé.");
         }
         return this.repository.save(event);

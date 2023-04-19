@@ -1,5 +1,6 @@
 package com.niji.lille.nijiVerse.entities;
 
+import com.sun.xml.bind.v2.TODO;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -21,7 +22,7 @@ public class Parking {
     @Column(name = "places")
     private int places;
 
-
+//TODO: liste d'occupant ' @onetomany
     @Column(name = "occupant")
     private String occupant;
 

@@ -1,13 +1,16 @@
 package com.niji.lille.nijiVerse.controllers;
 
+import com.niji.lille.nijiVerse.entities.ECategory;
 import com.niji.lille.nijiVerse.entities.Event;
 import com.niji.lille.nijiVerse.services.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.Arrays;
 import java.util.List;
 
 @RestController
@@ -76,6 +79,19 @@ class EventController {
         return service.findById(id);
     }
 
+
+    /**
+     * Get all category in JSON format, to create an event
+     * @return all event categories in JSON format to create an event or search (?)
+     */
+    @GetMapping("/enums")
+    @ResponseStatus(code = HttpStatus.FOUND)
+    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
+    public ResponseEntity<?> getEnums() {
+        return ResponseEntity.ok(Arrays.asList(ECategory.values()));
+    }
+
+    
     /**
      * Supprime un event par son id
      *
@@ -87,4 +103,6 @@ class EventController {
     public void deleteById(@PathVariable Long id) {
         service.deleteById(id);
     }
+
+
 }
