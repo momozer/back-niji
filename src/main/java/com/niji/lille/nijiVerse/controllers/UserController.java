@@ -15,8 +15,6 @@ import java.util.Optional;
 @CrossOrigin(origins = "*", maxAge = 3600)
 class UserController {
 
-    //TODO = preauthorize;
-
     @Autowired
     private final UserServiceImpl service;
 
@@ -44,7 +42,7 @@ class UserController {
      */
     @PostMapping("/create")
     @ResponseStatus(code = HttpStatus.CREATED)
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
     public User save(@RequestBody User entity) {
         return service.save(entity);
     }
@@ -57,7 +55,7 @@ class UserController {
      */
     @PutMapping("/edit/{id}")
     @ResponseStatus(code = HttpStatus.ACCEPTED)
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
     public User update(@RequestBody User user, @PathVariable Long id) {
         if ( !id.equals(user.getId())){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Id non trouvé.");
@@ -86,7 +84,7 @@ class UserController {
      */
     @GetMapping("/{email}")
     @ResponseStatus(code = HttpStatus.FOUND)
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
     public Optional<User> findByEmail(@PathVariable String email){
         return  service.findByEmail(email);
     }
