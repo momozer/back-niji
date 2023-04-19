@@ -19,6 +19,8 @@ import java.util.List;
 
 class ParkingController {
 
+    //TODO : faire incremente(), getParking(), decrmente(), getPlace(), le reste ne pas exposer.
+
     @Autowired
     private final ParkingService service;
 
@@ -43,31 +45,16 @@ class ParkingController {
     }
 
     /**
-     * Crée un nouveau parking
-     * @param entity les infos du parking à créer
-     * @return le parking sauvegardé
-     */
-    @PostMapping("/create")
-    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
-    @ResponseStatus(code = HttpStatus.CREATED)
-    public Parking save(@RequestBody Parking entity) {
-        return service.save(entity);
-    }
-
-    /**
      * Met à jour les informations d'un parking
      * @param parking les informations du parking à modifier
      * @return le parking modifié
      */
-    @PutMapping("/edit/{id}")
+    @PutMapping("/edit/")
     @MessageMapping("places-restantes")
     @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
     @SendTo("topic/greetings")
     @ResponseStatus(code = HttpStatus.ACCEPTED)
-    public Parking update(@RequestBody Parking parking, @PathVariable Long id) {
-        if (!id.equals(parking.getId())){
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Id non trouvé.");
-        }
+    public Parking update(@RequestBody Parking parking) {
         return this.service.save(parking);
     }
 
@@ -86,9 +73,9 @@ class ParkingController {
 
     /**
      * Supprime un event par son id
-     * @param id l'id de l'event à supprimer
+     * @param id l'id de le parking à supprimer
      */
-    @DeleteMapping("/delete/{id}")
+    //@DeleteMapping("/delete/{id}")
     @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
     @ResponseStatus(code = HttpStatus.OK)
     public void deleteById(Long id) {

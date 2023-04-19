@@ -16,7 +16,8 @@ import java.util.List;
 @Service
 @Slf4j
 public class ParkingServiceImpl implements ParkingService {
-
+//TODO: revoir les methodes => modfier (edit) juste le nombre de places de parking | findAll peut être supprimer
+//    | juste on incremente, decremente services incrementer()  et décrementer()
     private Logger logger = LoggerFactory.getLogger(Event.class);
 
     private ParkingRepository repository;
