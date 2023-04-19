@@ -88,5 +88,5 @@ class EventController {
         service.deleteById(id);
     }
 
-    // TODO: Route which returns all the availables categories for event creation
+    // TODO: Route which returns all the availables categories for event creation in json
 }
